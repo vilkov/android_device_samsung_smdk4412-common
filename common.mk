@@ -65,8 +65,6 @@ PRODUCT_PACKAGES := \
     audio.a2dp.default \
     audio.primary.smdk4x12 \
     audio.usb.default \
-    camera.exynos4 \
-    Camera \
     com.android.future.usb.accessory \
     gralloc.exynos4 \
     hwcomposer.exynos4 \
@@ -150,7 +148,7 @@ PRODUCT_COPY_FILES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
-    hwui.render_dirty_regions=false \
+    debug.hwui.render_dirty_regions=false \
     ro.bq.gpu_to_cpu_unsupported=1
 
 PRODUCT_TAGS += dalvik.gc.type-precise
