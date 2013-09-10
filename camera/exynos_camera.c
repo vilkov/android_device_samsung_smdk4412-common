@@ -124,8 +124,8 @@ struct exynos_camera_preset exynos_camera_presets_smdk4x12[] = {
 			.whitebalance = "auto",
 			.whitebalance_values = "auto,incandescent,fluorescent,daylight,cloudy-daylight",
 
-			.antibanding = "50hz",
-			.antibanding_values = "50hz,off",
+			.antibanding = "auto",
+			.antibanding_values = "off,auto,50hz,60hz",
 
 			.scene_mode = "auto",
 			.scene_mode_values = "auto,portrait,landscape,night,beach,snow,sunset,fireworks,sports,party,candlelight,dusk-dawn,fall-color,text,back-light",
@@ -3002,7 +3002,7 @@ int exynos_camera_picture_thread_start(struct exynos_camera *exynos_camera)
 
 	if (exynos_camera->picture_thread_enabled) {
 		ALOGE("Picture thread was already started!");
-		return -1;
+		return 0;
 	}
 
 	if (exynos_camera->camera_picture_format)
@@ -4033,6 +4033,12 @@ int exynos_camera_take_picture(struct camera_device *dev)
 		return -EINVAL;
 
 	exynos_camera = (struct exynos_camera *) dev->priv;
+
+	if (exynos_camera->picture_thread_running
+		|| exynos_camera->auto_focus_thread_enabled)
+	{
+		return 0;
+	}
 
 	exynos_camera->callback_lock = 1;
 	rc = exynos_camera_picture_thread_start(exynos_camera);
