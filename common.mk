@@ -66,6 +66,7 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 PRODUCT_PACKAGES := \
+    AdvancedDisplay \
     audio.a2dp.default \
     audio.primary.smdk4x12 \
     audio.usb.default \
@@ -152,8 +153,7 @@ PRODUCT_COPY_FILES += \
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
-    debug.hwui.render_dirty_regions=false \
-    ro.bq.gpu_to_cpu_unsupported=1
+    debug.hwui.render_dirty_regions=false
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
