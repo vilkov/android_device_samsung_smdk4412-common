@@ -1057,33 +1057,29 @@ int exynos_camera_params_apply(struct exynos_camera *exynos_camera, int force)
 
 	focus_mode_string = exynos_param_string_get(exynos_camera, "focus-mode");
 	if (focus_mode_string != NULL) {
-		if (focus_mode == 0) {
-			if (strcmp(focus_mode_string, "auto") == 0)
-				focus_mode = FOCUS_MODE_AUTO;
-			else if (strcmp(focus_mode_string, "infinity") == 0)
-				focus_mode = FOCUS_MODE_INFINITY;
-			else if (strcmp(focus_mode_string, "macro") == 0)
-				focus_mode = FOCUS_MODE_MACRO;
-			else if (strcmp(focus_mode_string, "fixed") == 0)
-				focus_mode = FOCUS_MODE_FIXED;
-			else if (strcmp(focus_mode_string, "facedetect") == 0)
-				focus_mode = FOCUS_MODE_FACEDETECT;
-			else if (strcmp(focus_mode_string, "continuous-video") == 0)
-				focus_mode = FOCUS_MODE_CONTINOUS_VIDEO;
-			else if (strcmp(focus_mode_string, "continuous-picture") == 0)
-				focus_mode = FOCUS_MODE_CONTINOUS_PICTURE;
-			else {
-				exynos_param_string_set(exynos_camera, "focus-mode",
-					exynos_camera->raw_focus_mode);
-				return -EINVAL;
-			}
+		if (strcmp(focus_mode_string, "auto") == 0)
+			focus_mode = FOCUS_MODE_AUTO;
+		else if (strcmp(focus_mode_string, "infinity") == 0)
+			focus_mode = FOCUS_MODE_INFINITY;
+		else if (strcmp(focus_mode_string, "macro") == 0)
+			focus_mode = FOCUS_MODE_MACRO;
+		else if (strcmp(focus_mode_string, "fixed") == 0)
+			focus_mode = FOCUS_MODE_FIXED;
+		else if (strcmp(focus_mode_string, "facedetect") == 0)
+			focus_mode = FOCUS_MODE_FACEDETECT;
+		else if (strcmp(focus_mode_string, "continuous-video") == 0)
+			focus_mode = FOCUS_MODE_CONTINOUS_VIDEO;
+		else if (strcmp(focus_mode_string, "continuous-picture") == 0)
+			focus_mode = FOCUS_MODE_CONTINOUS_PICTURE;
+		else {
+			exynos_param_string_set(exynos_camera, "focus-mode",
+				exynos_camera->raw_focus_mode);
+			return -EINVAL;
 		}
 
-		if (focus_mode != exynos_camera->focus_mode || force) {
-			rc = exynos_v4l2_s_ctrl(exynos_camera, 0, V4L2_CID_CAMERA_FOCUS_MODE, focus_mode);
-			if (rc < 0)
-				ALOGE("%s: Unable to set focus mode", __func__);
-		}
+		rc = exynos_v4l2_s_ctrl(exynos_camera, 0, V4L2_CID_CAMERA_FOCUS_MODE, focus_mode);
+		if (rc < 0)
+			ALOGE("%s: Unable to set focus mode", __func__);
 
 		exynos_camera->focus_mode = focus_mode;
 		sprintf(exynos_camera->raw_focus_mode, "%s", focus_mode_string);
@@ -1532,14 +1528,11 @@ int exynos_camera_capture(struct exynos_camera *exynos_camera)
 					current_af = CAMERA_AF_STATUS_RESTART;
 			}
 
-			if (current_af != exynos_camera->auto_focus_result) {
-				exynos_camera->auto_focus_result = current_af;
-				if (exynos_camera->auto_focus_enabled) {
-					rc = exynos_camera_auto_focus(exynos_camera, current_af);
-					if (rc < 0) {
-						ALOGE("%s: Unable to auto focus", __func__);
-						goto error;
-					}
+			if (exynos_camera->auto_focus_enabled) {
+				rc = exynos_camera_auto_focus(exynos_camera, current_af);
+				if (rc < 0) {
+					ALOGE("%s: Unable to auto focus", __func__);
+					goto error;
 				}
 			}
 
@@ -2778,10 +2771,6 @@ int exynos_camera_picture_callback(struct exynos_camera *exynos_camera,
 	pthread_mutex_lock(&exynos_camera->picture_mutex);
 
 	if (!exynos_camera->picture_enabled && !exynos_camera->camera_fimc_is) {
-		if (exynos_camera->auto_focus_result == CAMERA_AF_STATUS_IN_PROGRESS) {
-			pthread_mutex_unlock(&exynos_camera->picture_mutex);
-			return 0;
-		}
 
 		rc = exynos_v4l2_s_ctrl(exynos_camera, 0, V4L2_CID_CAMERA_CAPTURE, 0);
 		if (rc < 0) {
