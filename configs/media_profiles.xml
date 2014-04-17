@@ -90,18 +90,12 @@
   <!-- Back Camera -->
   <CamcorderProfiles cameraId="0">
 
-    <EncoderProfile quality="low" fileFormat="mp4" duration="30">
+    <EncoderProfile quality="qvga" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="384000"
-             width="176"
-             height="144"
-             frameRate="30" />
-
-      <Audio codec="aac"
-             bitRate="128000"
-             sampleRate="48000"
-             channels="2" />
-    </EncoderProfile>
+             width="320"
+             height="240"
+             frameRate="15" />
 
     <EncoderProfile quality="high" fileFormat="mp4" duration="30">
       <Video codec="h264"
@@ -115,13 +109,6 @@
              sampleRate="48000"
              channels="2" />
     </EncoderProfile>
-
-    <EncoderProfile quality="qcif" fileFormat="mp4" duration="30">
-      <Video codec="h264"
-             bitRate="384000"
-             width="176"
-             height="144"
-             frameRate="30" />
 
       <Audio codec="aac"
              bitRate="128000"
@@ -335,9 +322,9 @@
     <EncoderProfile quality="qcif" fileFormat="mp4" duration="30">
       <Video codec="h264"
              bitRate="384000"
-             width="176"
-             height="144"
-             frameRate="30" />
+             width="320"
+             height="240"
+             frameRate="15" />
 
       <Audio codec="aac"
              bitRate="128000"
