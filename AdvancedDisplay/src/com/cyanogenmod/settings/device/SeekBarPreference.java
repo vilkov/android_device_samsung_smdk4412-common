@@ -83,12 +83,12 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
             Log.e(TAG, "Invalid interval value", e);
         }
     }
-    
+
     private String getAttributeStringValue(AttributeSet attrs, String namespace, String name, String defaultValue) {
         String value = attrs.getAttributeValue(namespace, name);
         if(value == null)
             value = defaultValue;
-        
+
         return value;
     }
 
@@ -104,7 +104,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 
     @Override
     protected View onCreateView(ViewGroup parent){
-        
+
         RelativeLayout layout =  null;
         try {
             LayoutInflater mInflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -117,7 +117,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
         }
         return layout;
     }
-    
+
     @Override
     public void onBindView(View view) {
         super.onBindView(view);
@@ -126,7 +126,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
             // move our seekbar to the new view we've been given
             ViewParent oldContainer = mSeekBar.getParent();
             ViewGroup newContainer = (ViewGroup) view.findViewById(R.id.seekBarPrefBarContainer);
-            
+
             if (oldContainer != newContainer) {
                 // remove the seekbar from the old view
                 if (oldContainer != null) {
@@ -166,7 +166,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
             Log.e(TAG, "Error updating seek bar preference", e);
         }
     }
-    
+
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         int newValue = progress + mMinValue;
