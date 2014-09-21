@@ -76,6 +76,7 @@ PRODUCT_PACKAGES := \
     libnetcmdiface \
     libsecion \
     libsync \
+    libUMP \
     libwpa_client \
     lights.exynos4 \
     macloader \
