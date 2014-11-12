@@ -45,6 +45,9 @@ ifeq ($(TARGET_SOC),exynos4x12)
 	LOCAL_CFLAGS += -DEXYNOS_ION
 endif
 
+LOCAL_C_INCLUDES += \
+    system/media/camera/include
+
 LOCAL_MODULE := camera.$(TARGET_BOOTLOADER_BOARD_NAME)
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
 LOCAL_MODULE_TAGS := optional
