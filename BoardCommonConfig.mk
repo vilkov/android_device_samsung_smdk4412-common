@@ -112,9 +112,6 @@ TARGET_USES_LOGD := false
 
 BOARD_USES_LEGACY_MMAP := true
 
-# RIL
-BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
-
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd
 BOARD_WLAN_DEVICE_REV            := bcm4334
