@@ -67,22 +67,16 @@ PRODUCT_PACKAGES := \
     audio.r_submix.default \
     audio.usb.default \
     com.android.future.usb.accessory \
-    dhcpcd.conf \
     gralloc.exynos4 \
-    hostapd \
-    hostapd_default.conf \
     hwcomposer.exynos4 \
     libfimg \
     libnetcmdiface \
     libsecion \
     libsync \
     libUMP \
-    libwpa_client \
     lights.exynos4 \
     macloader \
-    tinymix \
-    wpa_supplicant \
-    wpa_supplicant.conf
+    tinymix
 
 ifneq ($(TARGET_HAS_CAM_FLASH) ,false)
 PRODUCT_PACKAGES += \
