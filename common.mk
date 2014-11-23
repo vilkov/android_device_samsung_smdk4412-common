@@ -125,10 +125,11 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
-#wifi
+#Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
+    hostapd_default.conf \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf
