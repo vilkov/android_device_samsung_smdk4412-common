@@ -55,12 +55,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15
 
+PRODUCT_PACKAGES += \
+    libwpa_client \
+    hostapd \
+    hostapd_default.conf \
+    dhcpcd.conf \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 # Gps
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/gps.conf:system/etc/gps.conf
 
 # Packages
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     AdvancedDisplay \
     audio.a2dp.default \
     audio.primary.smdk4x12 \
@@ -124,15 +132,6 @@ PRODUCT_PACKAGES += \
     PhaseBeam \
     VisualizationWallpapers \
     librs_jni
-
-#Wifi
-PRODUCT_PACKAGES += \
-    libwpa_client \
-    hostapd \
-    hostapd_default.conf \
-    dhcpcd.conf \
-    wpa_supplicant \
-    wpa_supplicant.conf
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
