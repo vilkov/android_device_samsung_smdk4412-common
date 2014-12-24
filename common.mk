@@ -126,6 +126,10 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 #wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
