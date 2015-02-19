@@ -42,7 +42,6 @@ public class ScreenFragmentActivity extends PreferenceFragment implements
     private static final String TAG = "DisplaySettings_Screen";
     private mDNIeScenario mmDNIeScenario;
     private mDNIeMode mmDNIeMode;
-    private mDNIeNegative mmDNIeNegative;
 
     private SwitchPreference mTouchwakeEnable;
     private SeekBarPreference mTouchwakeTimeout;
@@ -67,9 +66,6 @@ public class ScreenFragmentActivity extends PreferenceFragment implements
         mmDNIeMode = (mDNIeMode) findPreference(DisplaySettings.KEY_MDNIE_MODE);
         mmDNIeMode.setEnabled(mDNIeMode.isSupported(res.getString(R.string.mdnie_mode_sysfs_file)));
 
-        mmDNIeNegative = (mDNIeNegative) findPreference(DisplaySettings.KEY_MDNIE_NEGATIVE);
-        mmDNIeNegative.setEnabled(mDNIeNegative.isSupported(res.getString(R.string.mdnie_negative_sysfs_file)));
-
         /* Touchwake */
         mTouchwakeEnable = (SwitchPreference) findPreference(KEY_TOUCHWAKE_ENABLE);
         mTouchwakeTimeout = (SeekBarPreference) findPreference(KEY_TOUCHWAKE_TIMEOUT);
@@ -89,7 +85,6 @@ public class ScreenFragmentActivity extends PreferenceFragment implements
             mTouchwakeTimeout.setValue(i / 1000);
             mTouchwakeTimeout.setOnPreferenceChangeListener(this);
         }
-
     }
 
     @Override
