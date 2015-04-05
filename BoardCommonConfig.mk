@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-# This variable is set first, so it can be overridden
+# This variable is set first, so it can be overriddenlp
 # by BoardConfigVendor.mk
 USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := false
@@ -166,6 +166,7 @@ RED_LED_PATH := /sys/class/leds/led_r/brightness
 GREEN_LED_PATH := /sys/class/leds/led_g/brightness
 BLUE_LED_PATH := /sys/class/leds/led_b/brightness
 BACKLIGHT_PATH := /sys/class/backlight/panel/brightness
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # Override healthd HAL
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.exynos4
