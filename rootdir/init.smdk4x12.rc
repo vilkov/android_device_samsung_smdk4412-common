@@ -144,8 +144,7 @@ on post-fs-data
 # Vibrator
     chmod 0660 /dev/tspdrv
     chown root shell /dev/tspdrv
-    chmod 0660 /sys/class/timed_output/vibrator/pwm_value
-    chown system system /sys/class/timed_output/vibrator/pwm_value
+    chmod 0660 /sys/vibrator/pwm_val
     chown system system /sys/vibrator/pwm_val
 
 # LED
@@ -163,6 +162,7 @@ on post-fs-data
 # S-Pen
     chown system system /sys/class/sec/sec_epen/epen_saving_mode
     chmod 660 /sys/class/sec/sec_epen/epen_saving_mode
+    write /sys/class/sec/sec_epen/epen_saving_mode 1
 
 # Permissions for LCD
     chown system radio /sys/class/lcd/panel/lcd_power
@@ -213,7 +213,6 @@ on post-fs-data
     chmod 0660 /sys/devices/system/cpu/busfreq/curr_freq
     chmod 0660 /sys/module/mali/parameters/mali_dvfs_control
     chmod 0664 /sys/bus/platform/devices/s5p-tmu/lot_id
-    chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/class/leds/keyboard-backlight/brightness
     chown system system /sys/class/leds/lcd-backlight/brightness
     chown system system /sys/class/backlight/panel/brightness
@@ -232,7 +231,6 @@ on post-fs-data
     chown system system /sys/class/leds/red/device/grpfreq
     chown system system /sys/class/leds/red/device/grppwm
     chown system system /sys/class/leds/red/device/blink
-    chown system system /sys/class/timed_output/vibrator/enable
     chown system system /sys/module/sco/parameters/disable_esco
     chown system system /sys/kernel/ipv4/tcp_wmem_min
     chown system system /sys/kernel/ipv4/tcp_wmem_def
