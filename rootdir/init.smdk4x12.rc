@@ -37,7 +37,6 @@ on init
 on fs
     mkdir /preload
     mount_all /fstab.smdk4x12
-    swapon_all /fstab.smdk4x12
 
     setprop ro.crypto.fuse_sdcard true
 
@@ -47,6 +46,10 @@ on fs
 # exfat module
     insmod /system/lib/modules/exfat_core.ko
     insmod /system/lib/modules/exfat_fs.ko
+
+on post-fs
+    swapon_all /fstab.smdk4x12
+    write /proc/sys/vm/page-cluster 0
 
 on post-fs-data
      # we will remap this as /mnt/sdcard with the sdcard fuse tool
