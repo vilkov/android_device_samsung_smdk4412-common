@@ -127,9 +127,6 @@ BOARD_CANT_REALLOCATE_OMX_BUFFERS := true
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-# Logging
-TARGET_USES_LOGD := false
-
 BOARD_USES_LEGACY_MMAP := true
 
 # Wifi
