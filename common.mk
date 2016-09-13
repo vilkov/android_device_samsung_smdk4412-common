@@ -128,7 +128,6 @@ PRODUCT_PACKAGES += \
 #wifi
 PRODUCT_PACKAGES += \
     hostapd \
-    dhcpcd.conf \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf
