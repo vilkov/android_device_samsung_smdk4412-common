@@ -40,8 +40,8 @@ BOARD_GLOBAL_CFLAGS += --param l1-cache-line-size=32 --param l1-cache-size=32 --
 BOARD_GLOBAL_CPPFLAGS += --param l1-cache-line-size=32 --param l1-cache-size=32 --param l2-cache-size=1024
 
 # Hint the compiler that we're using quad-core CPU
-BOARD_GLOBAL_CFLAGS += -mvectorize-with-neon-quad
-BOARD_GLOBAL_CPPFLAGS += -mvectorize-with-neon-quad
+#BOARD_GLOBAL_CFLAGS += -mvectorize-with-neon-quad
+#BOARD_GLOBAL_CPPFLAGS += -mvectorize-with-neon-quad
 
 EXYNOS4X12_ENHANCEMENTS := true
 EXYNOS4_ENHANCEMENTS := true
