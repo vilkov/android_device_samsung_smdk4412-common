@@ -81,7 +81,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_BLOCK_BASED_OTA := false
 
 # Hardware tunables
-BOARD_HARDWARE_CLASS := hardware/samsung/cmhw
+BOARD_HARDWARE_CLASS := hardware/samsung/cmhw \
+    device/samsung/smdk4412-common/cmhw
 
 # Graphics
 BOARD_EGL_NEEDS_HANDLE_VALUE := true
