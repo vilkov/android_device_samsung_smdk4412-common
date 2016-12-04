@@ -74,13 +74,6 @@ PRODUCT_PACKAGES := \
     Snap \
     tinymix
 
-# Telephony
-PRODUCT_PACKAGES += \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
 # MFC API
 PRODUCT_PACKAGES += \
     libsecmfcdecapi \
