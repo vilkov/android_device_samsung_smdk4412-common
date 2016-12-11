@@ -121,10 +121,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
-# Widevine
-PRODUCT_PACKAGES += \
-    libshim_wvm
-
 #wifi
 PRODUCT_PACKAGES += \
     hostapd \
