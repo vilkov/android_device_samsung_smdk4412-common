@@ -63,7 +63,10 @@ PRODUCT_PACKAGES := \
     hwcomposer.exynos4 \
     libExynosHWCService \
     libExynosIPService \
+    libfimc \
     libfimg \
+    libhwconverter \
+    libhwjpeg \
     libnetcmdiface \
     libsecion \
     libstlport \
