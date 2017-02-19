@@ -56,13 +56,13 @@ PRODUCT_COPY_FILES += \
 
 # Packages
 PRODUCT_PACKAGES := \
-    AdvancedDisplay \
+#    AdvancedDisplay \
     audio.a2dp.default \
     audio.primary.smdk4x12 \
     audio.r_submix.default \
     audio.usb.default \
     com.android.future.usb.accessory \
-    Gello \
+#    Gello \
     gralloc.exynos4 \
     hwcomposer.exynos4 \
     libExynosHWCService \
@@ -106,8 +106,8 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
-PRODUCT_PACKAGES += \
-    SamsungDoze
+#PRODUCT_PACKAGES += \
+#    SamsungDoze
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
