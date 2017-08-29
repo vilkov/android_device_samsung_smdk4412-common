@@ -35,7 +35,19 @@ LOCAL_C_INCLUDES := \
 	system/media/camera/include \
 	hardware/samsung/exynos4/hal/include
 
-LOCAL_SHARED_LIBRARIES := libutils libcutils liblog libcamera_client libhardware
+LOCAL_SHARED_LIBRARIES := \
+    	libhardware \
+    	liblog \
+    	libcamera_client \
+    	libgui \
+    	libhidltransport \
+    	libsensor \
+    	libutils \
+    	android.hidl.token@1.0-utils
+
+LOCAL_STATIC_LIBRARIES := \
+    	libarect
+
 LOCAL_PRELINK_MODULE := false
 
 ifeq ($(TARGET_SOC),exynos4x12)
