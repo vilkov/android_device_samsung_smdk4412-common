@@ -36,6 +36,7 @@ LOCAL_C_INCLUDES := \
 	hardware/samsung/exynos4/hal/include
 
 LOCAL_SHARED_LIBRARIES := \
+        libcutils \
     	libhardware \
     	liblog \
     	libcamera_client \
@@ -46,7 +47,9 @@ LOCAL_SHARED_LIBRARIES := \
     	android.hidl.token@1.0-utils
 
 LOCAL_STATIC_LIBRARIES := \
-    	libarect
+        libarect \
+        libbase \
+        libminui
 
 LOCAL_PRELINK_MODULE := false
 
